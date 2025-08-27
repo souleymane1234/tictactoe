@@ -124,7 +124,7 @@ const App:React.FC = ():JSX.Element => {
 									</div>
 								)}
 								<button onClick={handleNewGame} className={styles.newGameButton}>
-									Nouvelle partie
+									Nouvelle partie maintenat
 								</button>
 							</div>
 						</div>
