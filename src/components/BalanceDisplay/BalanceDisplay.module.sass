@@ -1,0 +1,70 @@
+.balanceContainer
+  position: fixed
+  top: 20px
+  left: 20px
+  background: rgba(0, 0, 0, 0.8)
+  border-radius: 10px
+  padding: 15px
+  color: white
+  font-family: 'Arial', sans-serif
+  z-index: 1000
+  backdrop-filter: blur(10px)
+  border: 1px solid rgba(255, 255, 255, 0.1)
+
+  @media (max-width: 768px)
+    top: 10px
+    left: 10px
+    padding: 10px
+    border-radius: 8px
+
+  @media (max-width: 480px)
+    top: 5px
+    left: 5px
+    padding: 8px
+    border-radius: 6px
+
+.balanceDisplay
+  display: flex
+  flex-direction: column
+  gap: 5px
+  margin-bottom: 10px
+
+.balanceLabel
+  font-size: 12px
+  opacity: 0.7
+  text-transform: uppercase
+  letter-spacing: 1px
+
+.balanceAmount
+  font-size: 18px
+  font-weight: bold
+  color: #4ade80
+
+  @media (max-width: 768px)
+    font-size: 16px
+
+  @media (max-width: 480px)
+    font-size: 14px
+
+.connectionStatus
+  display: flex
+  align-items: center
+  gap: 8px
+  font-size: 12px
+
+.statusDot
+  width: 8px
+  height: 8px
+  border-radius: 50%
+  display: inline-block
+
+.statusDot.connected
+  background: #4ade80
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.5)
+
+.statusDot.disconnected
+  background: #ef4444
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5)
+
+.statusText
+  opacity: 0.8
