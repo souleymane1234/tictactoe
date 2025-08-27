@@ -13,8 +13,7 @@ import * as modules from "../modules/index";
 const webpackProdConfig = merge(
 	commonConfig, 
 	{
-		mode: "none",
-		// mode: PRODUCTION,
+		mode: PRODUCTION,
 		entry: {
 			app: resolve(SOURCE_DIRECTORY, "./index.tsx"),
 			// history: resolve(SOURCE_DIRECTORY, "./components/History/index.tsx"),
@@ -41,8 +40,8 @@ const webpackProdConfig = merge(
 			})
 		],
 		optimization : {
-	  	// minimize: true,
-	  	// minimizer: [ new TerserPlugin() ],
+	  	minimize: true,
+	  	minimizer: [ new TerserPlugin() ],
 	  	emitOnErrors: true,
 	  	removeEmptyChunks: true,
 	  	mergeDuplicateChunks: true,
