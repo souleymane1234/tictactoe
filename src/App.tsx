@@ -16,6 +16,7 @@ const App:React.FC = ():JSX.Element => {
 	const { winner, winnerStreak }:TUseWinner = useWinner(history)
 	const [ hasPlacedBet, setHasPlacedBet ] = useState<boolean>(false)
 	const [ currentBet, setCurrentBet ] = useState<number>(0)
+	const [ showGameOver, setShowGameOver ] = useState<boolean>(false)
 	const {
 		moveOfBot,
 		setPause
@@ -38,6 +39,15 @@ const App:React.FC = ():JSX.Element => {
 				communicationService.onGameEnd('lose', currentBet);
 				console.log('Bot gagne! Perte:', currentBet);
 			}
+			
+			// Afficher le panel de fin après 2 secondes
+			const timer = setTimeout(() => {
+				setShowGameOver(true)
+			}, 2000)
+			
+			return () => clearTimeout(timer)
+		} else {
+			setShowGameOver(false)
 		}
 	}, [winner, currentBet])
 	
@@ -59,7 +69,8 @@ const App:React.FC = ():JSX.Element => {
 		// Retour au panneau de paris pour une nouvelle partie
 		setHasPlacedBet(false);
 		setCurrentBet(0);
-		updateHistory([{ board: new Array(200).fill(null), isXNext: true }]);
+		setShowGameOver(false);
+		updateHistory([{ board: new Array(225).fill(null), isXNext: true }]);
 		setGameID(Date.now());
 		setPause(false);
 	};
@@ -96,7 +107,7 @@ const App:React.FC = ():JSX.Element => {
 						winnerStreak={winnerStreak}
 					/>
 
-					{winner && ( // Game Over screen
+					{showGameOver && winner && ( // Game Over screen
 						<div className={styles.gameOver}>
 							<div className={styles.gameOverContent}>
 								<h2>Partie terminée!</h2>

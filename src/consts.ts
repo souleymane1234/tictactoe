@@ -1,5 +1,5 @@
-const SIZE_OF_BOARD:number = 20
-const START_GAME = [ {board: new Array(200).fill(null), isXNext: true } ]
+const SIZE_OF_BOARD:number = 15
+const START_GAME = [ {board: new Array(225).fill(null), isXNext: true } ]
 const WIN_STREAK:number = 5
 const HALF_OF_WIN_STREAK:number = Math.trunc(WIN_STREAK / 2)
 

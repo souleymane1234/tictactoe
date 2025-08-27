@@ -10,7 +10,7 @@ const compiler = webpack(devConfig);
 const server = new DevServer({
 	host: HOST,
 	port: PORT,
-	open: false,
+	open: true,
 	liveReload: true,
 	historyApiFallback: true,
 	client: {

@@ -4,6 +4,7 @@
   "description": "another application",
   "license": "MIT",
   "scripts": {
+    "start": "cross-env NODE_ENV=development node --require @babel/register \"./webpack/start.js\"",
     "node-build": "cross-env NODE_ENV=production node --require @babel/register \"./webpack/build.js\"",
     "node-start": "cross-env NODE_ENV=development node --require @babel/register \"./webpack/start.js\"",
     "test-compile": "node test-compile.js",
